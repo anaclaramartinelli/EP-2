@@ -1,1 +1,1 @@
-print ("ana e thais")
+print ("Thais")
