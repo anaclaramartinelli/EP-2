@@ -1,0 +1,22 @@
+def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
+
+    lista_posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
+
+    if nome_navio in frota:
+        frota[nome_navio].append(lista_posicoes)
+    else:
+        frota[nome_navio] = [lista_posicoes]
+    
+    return frota
+    
+def define_posicoes(linha, coluna, orientacao, tamanho):
+
+    saida = []
+
+    for i in range (tamanho):
+        if orientacao == 'vertical':
+            saida.append([linha+i, coluna])
+        else:
+            saida.append([linha, coluna+i])
+            
+    return saida    
