@@ -1,0 +1,14 @@
+def afundados(frota, tabuleiro):
+    navios_afundados = 0
+    for tipo_navio, posicoes in frota.items():
+        for navio in posicoes:
+            tamanho_navio = len(navio)
+            cont = 0
+            for coord in navio:
+                linha = coord[0]
+                coluna = coord[1]
+                if tabuleiro[linha][coluna] == 'X':
+                    cont += 1
+            if cont == tamanho_navio:
+                navios_afundados += 1
+    return navios_afundados
