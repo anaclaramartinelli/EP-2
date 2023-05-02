@@ -1,6 +1,6 @@
 def afundados(frota, tabuleiro):
     navios_afundados = 0
-    for tipo_navio, posicoes in frota.items():
+    for nome_navio, posicoes in frota.items():
         for navio in posicoes:
             tamanho_navio = len(navio)
             cont = 0
