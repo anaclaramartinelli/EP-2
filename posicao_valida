@@ -1,0 +1,32 @@
+def posicao_valida(frota, linha, coluna, orientacao, tamanho):
+    saida_lista = define_posicoes(linha, coluna, orientacao, tamanho)
+    
+    for pos in frota.values():
+        for i in pos:
+            for j in i: 
+                linha = j[0]
+                coluna = j[1]
+                if j in saida_lista:
+                    return False
+                if j[1] in saida_lista or j[0] in saida_lista:
+                    return False
+                for s in saida_lista:
+                    if s[0] == linha and s[1] == coluna:
+                        return False
+    for j in saida_lista:
+        if  j[0] > 9 or j[0] < 0 or j[1] > 9 or j[1] < 0:
+            return False 
+                     
+    return True
+
+def define_posicoes(linha, coluna, orientacao, tamanho):
+
+    saida = []
+
+    for i in range (tamanho):
+        if orientacao == 'vertical':
+            saida.append([linha+i, coluna])
+        else:
+            saida.append([linha, coluna+i])
+            
+    return saida
