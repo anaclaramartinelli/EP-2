@@ -1,18 +1,18 @@
 def posicao_valida(frota, linha, coluna, orientacao, tamanho):
     saida_lista = define_posicoes(linha, coluna, orientacao, tamanho)
     
-    for pos in frota.values():
-        for i in pos:
-            for j in i: 
-                if j in saida_lista:
+    for tipo_navio in frota.values():
+        for navio in tipo_navio:
+            for posicao in range(len(navio)): 
+                if navio[posicao] in saida_lista:
                     return False
-                if j[1] in saida_lista or j[0] in saida_lista:
+                if posicao ==1 and navio[posicao] in saida_lista or posicao==0 and navio[posicao] in saida_lista:
                     return False
-                for s in saida_lista:
-                    if s[0] == j[0] and s[1] == j[1]:
+                for i in saida_lista:
+                    if i[0] == navio[0] and i[1] == navio[1]:
                         return False
-    for j in saida_lista:
-        if  j[0] > 9 or j[0] < 0 or j[1] > 9 or j[1] < 0:
+    for posicao in saida_lista:
+        if  posicao[0] > 9 or posicao[0] < 0 or posicao[1] > 9 or posicao[1] < 0:
             return False 
                      
     return True
