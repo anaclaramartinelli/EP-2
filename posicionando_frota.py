@@ -131,12 +131,12 @@ for nome_navio in dici_navios.keys():
 
         if nome_navio != 'submarino':
             o = input("[1] Vertical [2] Horizontal > ")
-
+            
             if o.strip() == '':    
                 while o == '':
                     print("A entrada do usuário está vazia. Digite um número")
                     o =  input("[1] Vertical [2] Horizontal > ")                    
-            
+ 
             o = int(o)
 
             if o == 1:
@@ -158,5 +158,7 @@ for nome_navio in dici_navios.keys():
             if posicao_valida(frota, linha, coluna, orientacao, tamanho):
                 frota = preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho)
                 i+=1
+            else:
+                print('Esta posição não está válida!')
 
 print (frota)
