@@ -3,7 +3,7 @@ def preenche_frota(frota, nome_navio, linha, coluna, orientacao, tamanho):
     lista_posicoes = define_posicoes(linha, coluna, orientacao, tamanho)
 
     if nome_navio in frota:
-        frota[nome_navio] += [lista_posicoes]
+        frota[nome_navio].append(lista_posicoes)
     else:
         frota[nome_navio] = [lista_posicoes]
     
@@ -19,4 +19,4 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
         else:
             saida.append([linha, coluna+i])
             
-    return saida 
+    return saida    
