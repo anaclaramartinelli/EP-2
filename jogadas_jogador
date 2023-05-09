@@ -85,7 +85,6 @@ def afundados(frota, tabuleiro):
                 navios_afundados += 1
     return navios_afundados
 
-
 frota = {    
     "porta-aviões":[],
     "navio-tanque":[],
@@ -207,10 +206,9 @@ def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
 jogando =  True
 
 posicoes_atacadas = []
-linhas_colunas_atacadas = []
 
+print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 while jogando == True:
-    print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
     linha_atacada = input("Jogador, qual linha deseja atacar? ")
 
     if linha_atacada.strip() == '':    
@@ -240,25 +238,17 @@ while jogando == True:
             coluna_atacada = input("Jogador, qual coluna deseja atacar? ") 
 
     coluna_atacada = int(coluna_atacada) 
-    
-    posicoes_atacadas = []
 
-    
-    if [linha_atacada, coluna_atacada] in linhas_colunas_atacadas:
+    if [linha_atacada, coluna_atacada] in posicoes_atacadas:
         print ("A posição linha {0} e coluna {1} já foi informada anteriormente" .format(linha_atacada, coluna_atacada))
-        linha_atacada = 0
-        coluna_atacada = 0
 
     else:
-        posicoes_atacadas.append(linha_atacada)
-        posicoes_atacadas.append(coluna_atacada)
-        linhas_colunas_atacadas.append(posicoes_atacadas)
+        posicoes_atacadas.append([linha_atacada, coluna_atacada])
         tabuleiro_oponente = faz_jogada(tabuleiro_oponente, linha_atacada, coluna_atacada)
+        print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 
     afundados_oponentes = afundados(frota_oponente, tabuleiro_oponente)
 
-    print (monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
-        
     for tipo_navio, navios in frota_oponente.items():
         for i in range(len(navios)):
             if navios[i] == []:
