@@ -28,4 +28,3 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
             saida.append([linha, coluna+i])
             
     return saida
-
