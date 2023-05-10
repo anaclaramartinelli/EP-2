@@ -251,10 +251,11 @@ while jogando == True:
 
     for tipo_navio, navios in frota_oponente.items():
         for i in range(len(navios)):
-            if navios[i] == []:
+            if afundados == 10:
+                print ('Parabéns! Você derrubou todos os navios do seu oponente!')
                 jogando = False
+         
             else:
                 jogando = True
         
-    if jogando == False:
-        print ('Parabéns! Você derrubou todos os navios do seu oponente!')
+
