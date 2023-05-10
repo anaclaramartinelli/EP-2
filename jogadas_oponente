@@ -67,7 +67,7 @@ def posiciona_frota(frota):
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     ]
     
-    for posicao in frota.values():
+    for posicao in frota.values() :
         for i in posicao:
             for coord in i:
                 linha = coord[0]
